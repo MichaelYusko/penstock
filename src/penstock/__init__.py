@@ -6,17 +6,21 @@ from gevent import monkey
 monkey.patch_all()
 
 import logging
-from logging.config import dictConfig
+import os
+import sys
 import argparse
+
+from random import sample
+from yaml import load
+from time import sleep
+from logging.config import dictConfig
+from urlparse import urlparse
+
 import gevent
 import consul
 import socket
-from random import sample
+
 from couchdb.client import Database, Server
-from yaml import load
-from time import sleep
-import sys, os
-from urlparse import urlparse
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
@@ -123,6 +127,7 @@ def run_checker(configuration):
 
         logger.info("Wait replication.")
         sleep(10)
+
 
 def main():
     parser = argparse.ArgumentParser(description='---- Penstock ----')
