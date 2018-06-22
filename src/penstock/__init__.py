@@ -20,7 +20,7 @@ import gevent
 import consul
 import socket
 
-from couchdb.client import Database, Server
+from couchdb.client import Server
 
 logging.basicConfig(stream=sys.stdout, level=logging.INFO)
 
